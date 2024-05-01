@@ -1,0 +1,1696 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Task - 1</title>
+
+  <!-- Don't use this in production: -->
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+  <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin>
+  </script>
+
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin>
+  </script>
+
+
+  <!--
+    Note: this page is a great way to try React but it's not suitable for production.
+    It slowly compiles JSX with Babel in the browser and uses a large development build of React.
+  -->
+
+  <link rel="stylesheet" href="index.css">
+
+  <script defer type="text/babel" src="index.js">
+  </script>
+
+  <script defer type="text/babel" src="action.js">
+  </script>
+
+
+
+</head>
+
+<body>
+
+  <pre id="info">
+    All table cells can be edited and 
+    a json of updated cell with cellId and value can be 
+    obtained by clicking bottom right button 
+  </pre>
+
+  <div id="root"></div>
+
+  <div id="edited-json-data-div" style="display: none;">
+    <p>Edited data in json format</p>
+    <pre id="json-data"></pre>
+  </div>
+
+
+
+  <script defer type="text/babel">
+
+    const Header = () => {
+      return <div class="header">
+        <div class="header-content">
+          MONTH 1
+        </div>
+      </div>
+    }
+
+    // const getCellInfoObj = ({ colId, cellId, content }) => {
+    //     return {
+    //         colId: colId,
+    //         cellId: cellId,
+    //         content: content
+    //     }
+    // }
+
+    const getCellInfo = (cellIdx) => {
+      switch (cellIdx) {
+        case "id0":
+          return {
+            colId: "id",
+            content: "0"
+          }
+        case "id1":
+          return {
+            colId: "id",
+            content: "1"
+          }
+
+        case "id2":
+          return {
+            colId: "id",
+            content: "2"
+          }
+
+        case "id3":
+          return {
+            colId: "id",
+            content: "3"
+          }
+
+        case "id4":
+          return {
+            colId: "id",
+            content: "4"
+          }
+
+        case "id5":
+          return {
+            colId: "id",
+            content: "5"
+          }
+
+        case "id6":
+          return {
+            colId: "id",
+            content: "6"
+          }
+
+        case "id7":
+          return {
+            colId: "id",
+            content: "7"
+          }
+
+        case "id8":
+          return {
+            colId: "id",
+            content: "8"
+          }
+
+        case "id9":
+          return {
+            colId: "id",
+            content: "9"
+          }
+
+        case "id10":
+          return {
+            colId: "id",
+            content: "10"
+          }
+
+        case "id11":
+          return {
+            colId: "id",
+            content: "11"
+          }
+
+        case "id12":
+          return {
+            colId: "id",
+            content: "12"
+          }
+
+        case "id13":
+          return {
+            colId: "id",
+            content: "13"
+          }
+
+        case "id14":
+          return {
+            colId: "id",
+            content: "14"
+          }
+
+        case "id15":
+          return {
+            colId: "id",
+            content: "15"
+          }
+
+        case "id16":
+          return {
+            colId: "id",
+            content: "16"
+          }
+
+        case "id17":
+          return {
+            colId: "id",
+            content: "17"
+          }
+
+
+        case "A0":
+          return {
+            colId: "A",
+            cellId: "A0",
+            content: "Onboarding Call"
+          }
+        case "A1":
+          return {
+            colId: "A",
+            cellId: "A1",
+            content: "Google Search Console Access"
+          }
+
+        case "A2":
+          return {
+            colId: "A",
+            cellId: "A1",
+            content: "Google Analytics Access"
+          }
+
+        case "A3":
+          return {
+            colId: "A",
+            cellId: "A3",
+            content: "Website Access"
+          }
+
+        case "A4":
+          return {
+            colId: "A",
+            cellId: "A4",
+            content: "Technical Audit"
+          }
+
+        case "A5":
+          return {
+            colId: "A",
+            cellId: "A5",
+            content: "Anchor Text and Semantic Analysis"
+          }
+
+
+        case "A6":
+          return {
+            colId: "A",
+            cellId: "A6",
+            content: "Competitor Analysis"
+          }
+
+
+
+        case "A7":
+          return {
+            colId: "A",
+            cellId: "A7",
+            content: "Anchor Text/URL Mapping"
+          }
+
+
+        case "A8":
+          return {
+            colId: "A",
+            cellId: "A8",
+            content: "Google Data Studio Report + Local Reporting Suite"
+          }
+
+
+
+        case "A9":
+          return {
+            colId: "A",
+            cellId: "A9",
+            content: "Site Level Optimization"
+          }
+
+
+        case "A10":
+          return {
+            colId: "A",
+            cellId: "A10",
+            content: "On Page Optimization"
+          }
+
+
+        case "A11":
+          return {
+            colId: "A",
+            cellId: "A11",
+            content: "Content Creation"
+          }
+
+
+        case "A12":
+          return {
+            colId: "A",
+            cellId: "A12",
+            content: "Content Publishing"
+          }
+
+
+        case "A13":
+          return {
+            colId: "A",
+            cellId: "A13",
+            content: "Premium Press Release"
+          }
+
+
+
+        case "A14":
+          return {
+            colId: "A",
+            cellId: "A14",
+            content: "Authority Niche Placements"
+          }
+        case "A15":
+          return {
+            colId: "A",
+            cellId: "A15",
+            content: "Review Management"
+          }
+
+        case "A16":
+          return {
+            colId: "A",
+            cellId: "A16",
+            content: "Index Links"
+          }
+
+        case "A17":
+          return {
+            colId: "A",
+            cellId: "A17",
+            content: "Video Recap"
+          }
+
+
+        case "B0":
+          return {
+            colId: "B",
+            cellId: "B0",
+            content: ""
+          }
+
+        case "B1":
+          return {
+            colId: "B",
+            cellId: "B1",
+            content: ""
+          }
+        case "B2":
+          return {
+            colId: "B",
+            cellId: "B2",
+            content: ""
+          }
+
+
+        case "B3":
+          return {
+            colId: "B",
+            cellId: "B3",
+            content: ""
+          }
+
+        case "B4":
+          return {
+            colId: "B",
+            cellId: "B4",
+            content: ""
+          }
+        case "B5":
+          return {
+            colId: "B",
+            cellId: "B5",
+            content: ""
+          }
+
+
+        case "B6":
+          return {
+            colId: "B",
+            cellId: "B6",
+            content: ""
+          }
+
+        case "B7":
+          return {
+            colId: "B",
+            cellId: "B7",
+            content: ""
+          }
+        case "B8":
+          return {
+            colId: "B",
+            cellId: "B8",
+            content: ""
+          }
+
+
+        case "B9":
+          return {
+            colId: "B",
+            cellId: "B9",
+            content: ""
+          }
+
+        case "B10":
+          return {
+            colId: "B",
+            cellId: "B10",
+            content: ""
+          }
+
+        case "B11":
+          return {
+            colId: "B",
+            cellId: "B11",
+            content: ""
+          }
+
+        case "B12":
+          return {
+            colId: "B",
+            cellId: "B12",
+            content: ""
+          }
+
+        case "B13":
+          return {
+            colId: "B",
+            cellId: "B13",
+            content: ""
+          }
+        case 'B14':
+          return {
+            colId: "B",
+            cellId: "B14",
+            content: ""
+          }
+
+        case "B15":
+          return {
+            colId: "B",
+            cellId: "B15",
+            content: ""
+          }
+
+        case "B16":
+          return {
+            colId: "B",
+            cellId: "B16",
+            content: ""
+          }
+
+        case "B17":
+          return {
+            colId: "B",
+            cellId: "B17",
+            content: ""
+          }
+
+        case "C0":
+          return {
+            colId: "C",
+            cellId: "C0",
+            content: ""
+          }
+
+        case "C1":
+          return {
+            colId: "C",
+            cellId: "C1",
+            content: ""
+          }
+        case "C2":
+          return {
+            colId: "C",
+            cellId: "C2",
+            content: ""
+          }
+
+
+        case "C3":
+          return {
+            colId: "C",
+            cellId: "C3",
+            content: ""
+          }
+
+        case "C4":
+          return {
+            colId: "C",
+            cellId: "C4",
+            content: ""
+          }
+        case "C5":
+          return {
+            colId: "C",
+            cellId: "C5",
+            content: ""
+          }
+
+
+        case "C6":
+          return {
+            colId: "C",
+            cellId: "C6",
+            content: ""
+          }
+
+        case "C7":
+          return {
+            colId: "C",
+            cellId: "C7",
+            content: ""
+          }
+        case "C8":
+          return {
+            colId: "C",
+            cellId: "C8",
+            content: ""
+          }
+
+
+        case "C9":
+          return {
+            colId: "C",
+            cellId: "C9",
+            content: ""
+          }
+
+        case "C10":
+          return {
+            colId: "C",
+            cellId: "C10",
+            content: ""
+          }
+
+        case "C11":
+          return {
+            colId: "C",
+            cellId: "C11",
+            content: ""
+          }
+
+        case "C12":
+          return {
+            colId: "C",
+            cellId: "C12",
+            content: ""
+          }
+
+        case "C13":
+          return {
+            colId: "C",
+            cellId: "C13",
+            content: ""
+          }
+        case "C14":
+          return {
+            colId: "C",
+            cellId: "C14",
+            content: ""
+          }
+
+        case "C15":
+          return {
+            colId: "C",
+            cellId: "C15",
+            content: ""
+          }
+
+        case "C16":
+          return {
+            colId: "C",
+            cellId: "C16",
+            content: ""
+          }
+
+        case "C17":
+          return {
+            colId: "C",
+            cellId: "C17",
+            content: ""
+          }
+
+        case "D0":
+          return {
+            colId: "D",
+            cellId: "D0",
+            content: ""
+          }
+
+        case "D1":
+          return {
+            colId: "D",
+            cellId: "D1",
+            content: ""
+          }
+
+        case "D2":
+          return {
+            colId: "D",
+            cellId: "D2",
+            content: ""
+          }
+
+
+        case "D3":
+          return {
+            colId: "D",
+            cellId: "D3",
+            content: ""
+          }
+
+        case "D4":
+          return {
+            colId: "D",
+            cellId: "D4",
+            content: ""
+          }
+
+        case "D5":
+          return {
+            colId: "D",
+            cellId: "D5",
+            content: ""
+          }
+
+
+        case "D6":
+          return {
+            colId: "D",
+            cellId: "D6",
+            content: ""
+          }
+
+        case "D7":
+          return {
+            colId: "D",
+            cellId: "D7",
+            content: ""
+          }
+        case "D8":
+          return {
+            colId: "D",
+            cellId: "D8",
+            content: ""
+          }
+
+
+        case "D9":
+          return {
+            colId: "D",
+            cellId: "D9",
+            content: ""
+          }
+
+        case "D10":
+          return {
+            colId: "D",
+            cellId: "D10",
+            content: ""
+          }
+
+        case "D11":
+          return {
+            colId: "D",
+            cellId: "D11",
+            content: ""
+          }
+
+        case "D12":
+          return {
+            colId: "D",
+            cellId: "D12",
+            content: ""
+          }
+
+        case "D13":
+          return {
+            colId: "D",
+            cellId: "D13",
+            content: ""
+          }
+        case "D14":
+          return {
+            colId: "D",
+            cellId: "D14",
+            content: ""
+          }
+
+        case "D15":
+          return {
+            colId: "D",
+            cellId: "D15",
+            content: ""
+          }
+
+        case "D16":
+          return {
+            colId: "D",
+            cellId: "D16",
+            content: ""
+          }
+
+        case "D17":
+          return {
+            colId: "D",
+            cellId: "D17",
+            content: ""
+          }
+
+
+        case "F0":
+          return {
+            colId: "F",
+            cellId: "F0",
+            content: ""
+          }
+
+        case "F1":
+          return {
+            colId: "F",
+            cellId: "F1",
+            content: ""
+          }
+
+        case "F2":
+          return {
+            colId: "F",
+            cellId: "F2",
+            content: ""
+          }
+
+
+        case "F3":
+          return {
+            colId: "F",
+            cellId: "F3",
+            content: ""
+          }
+
+        case "F4":
+          return {
+            colId: "F",
+            cellId: "F4",
+            content: ""
+          }
+
+        case "F5":
+          return {
+            colId: "F",
+            cellId: "F5",
+            content: ""
+          }
+
+
+        case "F6":
+          return {
+            colId: "F",
+            cellId: "F6",
+            content: ""
+          }
+
+        case "F7":
+          return {
+            colId: "F",
+            cellId: "F7",
+            content: ""
+          }
+        case "F8":
+          return {
+            colId: "F",
+            cellId: "F8",
+            content: ""
+          }
+
+
+        case "F9":
+          return {
+            colId: "F",
+            cellId: "F9",
+            content: ""
+          }
+
+        case "F10":
+          return {
+            colId: "F",
+            cellId: "F10",
+            content: ""
+          }
+
+        case "F11":
+          return {
+            colId: "F",
+            cellId: "F11",
+            content: ""
+          }
+
+        case "F12":
+          return {
+            colId: "F",
+            cellId: "F12",
+            content: ""
+          }
+
+        case "F13":
+          return {
+            colId: "F",
+            cellId: "F13",
+            content: ""
+          }
+        case "F14":
+          return {
+            colId: "F",
+            cellId: "F14",
+            content: ""
+          }
+
+        case "F15":
+          return {
+            colId: "F",
+            cellId: "F15",
+            content: ""
+          }
+
+        case "F16":
+          return {
+            colId: "F",
+            cellId: "F16",
+            content: ""
+          }
+
+        case "F17":
+          return {
+            colId: "F",
+            cellId: "F17",
+            content: ""
+          }
+
+
+        case "G0":
+          return {
+            colId: "G",
+            cellId: "G0",
+            content: ""
+          }
+
+        case "G1":
+          return {
+            colId: "G",
+            cellId: "G1",
+            content: ""
+          }
+
+        case "G2":
+          return {
+            colId: "G",
+            cellId: "G2",
+            content: ""
+          }
+
+
+        case "G3":
+          return {
+            colId: "G",
+            cellId: "G3",
+            content: ""
+          }
+
+        case "G4":
+          return {
+            colId: "G",
+            cellId: "G4",
+            content: ""
+          }
+
+        case "G5":
+          return {
+            colId: "G",
+            cellId: "G5",
+            content: ""
+          }
+
+
+        case "G6":
+          return {
+            colId: "G",
+            cellId: "G6",
+            content: ""
+          }
+
+        case "G7":
+          return {
+            colId: "G",
+            cellId: "G7",
+            content: ""
+          }
+        case "G8":
+          return {
+            colId: "G",
+            cellId: "G8",
+            content: ""
+          }
+
+
+        case "G9":
+          return {
+            colId: "G",
+            cellId: "G9",
+            content: ""
+          }
+
+        case "G10":
+          return {
+            colId: "G",
+            cellId: "G10",
+            content: ""
+          }
+
+        case "G11":
+          return {
+            colId: "G",
+            cellId: "G11",
+            content: ""
+          }
+
+        case "G12":
+          return {
+            colId: "G",
+            cellId: "G12",
+            content: ""
+          }
+
+        case "G13":
+          return {
+            colId: "G",
+            cellId: "G13",
+            content: ""
+          }
+        case "G14":
+          return {
+            colId: "G",
+            cellId: "G14",
+            content: ""
+          }
+
+        case "G15":
+          return {
+            colId: "G",
+            cellId: "G15",
+            content: ""
+          }
+
+        case "G16":
+          return {
+            colId: "G",
+            cellId: "G16",
+            content: ""
+          }
+
+        case "G17":
+          return {
+            colId: "G",
+            cellId: "G17",
+            content: ""
+          }
+
+
+
+
+
+        case "E0":
+          return {
+            colId: "E",
+            cellId: "E0",
+            content: ""
+          }
+
+        case "E1":
+          return {
+            colId: "E",
+            cellId: "E1",
+            content: ""
+          }
+
+        case "E2":
+          return {
+            colId: "E",
+            cellId: "E2",
+            content: ""
+          }
+
+
+        case "E3":
+          return {
+            colId: "E",
+            cellId: "E3",
+            content: ""
+          }
+
+        case "E4":
+          return {
+            colId: "E",
+            cellId: "E4",
+            content: ""
+          }
+
+        case "E5":
+          return {
+            colId: "E",
+            cellId: "E5",
+            content: ""
+          }
+
+
+        case "E6":
+          return {
+            colId: "E",
+            cellId: "E6",
+            content: ""
+          }
+
+        case "E7":
+          return {
+            colId: "E",
+            cellId: "E7",
+            content: ""
+          }
+        case "E8":
+          return {
+            colId: "E",
+            cellId: "E8",
+            content: ""
+          }
+
+
+        case "E9":
+          return {
+            colId: "E",
+            cellId: "E9",
+            content: ""
+          }
+
+        case "E10":
+          return {
+            colId: "E",
+            cellId: "E10",
+            content: ""
+          }
+
+        case "E11":
+          return {
+            colId: "E",
+            cellId: "E11",
+            content: ""
+          }
+
+        case "E12":
+          return {
+            colId: "E",
+            cellId: "E12",
+            content: ""
+          }
+
+        case "E13":
+          return {
+            colId: "E",
+            cellId: "E13",
+            content: ""
+          }
+        case "E14":
+          return {
+            colId: "E",
+            cellId: "E14",
+            content: ""
+          }
+
+        case "E15":
+          return {
+            colId: "E",
+            cellId: "E15",
+            content: ""
+          }
+
+        case "E16":
+          return {
+            colId: "E",
+            cellId: "E16",
+            content: ""
+          }
+
+        case "E17":
+          return {
+            colId: "E",
+            cellId: "E17",
+            content: ""
+          }
+
+
+        default: return {};
+      }
+    }
+
+
+
+    const cellData = [
+
+    ]
+
+    const BuildCell = ({ cellIdx, isEditable }) => {
+      const cellInfo = getCellInfo(cellIdx);
+
+
+      const onTextChange = (event) => {
+
+        const value = event.currentTarget.textContent;
+
+        const newCellData = {
+          cellId: cellIdx,
+          content: value
+        }
+
+        const updatedList = [];
+
+        cellData.forEach(item => {
+          if (item.cellId !== cellIdx) {
+            updatedList.push(item);
+          }
+
+        })
+
+        cellData.length = 0;
+
+        updatedList.push({
+          cellId: cellIdx,
+          content: value
+        })
+
+        updatedList.forEach(item => {
+          cellData.push(item);
+        })
+
+        console.log(cellData);
+
+      }
+
+      return (
+        <div contentEditable={isEditable}
+
+          onInput={onTextChange}
+          onClick={
+            () => console.log(`clicked ${cellIdx}`)
+          }
+
+          id={cellInfo.colId} class={cellInfo.cellId} >
+
+          {cellInfo.content}
+
+        </div>
+      );
+    }
+
+    const Row0 = () => {
+      const cellIdList = [
+        "A0", "B0", "C0", "D0", "E0", "F0", "G0",
+      ];
+
+      const divChildList = [];
+
+      for (var item in cellIdList) {
+        divChildList.push(
+          <BuildCell key={cellIdList[item]}
+            isEditable={true}
+            cellIdx={cellIdList[item]}
+          />)
+      }
+
+      return <>
+        <div class="row0">
+          <BuildCell cellIdx="id0" />
+          {divChildList}
+        </div>
+      </>
+    }
+
+    const Row1 = () => {
+      const cellIdList = [
+        "A1", "B1", "C1", "D1", "E1", "F1", "G1",
+      ];
+
+      const divChildList = [];
+
+      for (var item in cellIdList) {
+        divChildList.push(
+          <BuildCell key={cellIdList[item]}
+            isEditable={true}
+            cellIdx={cellIdList[item]}
+          />)
+      }
+
+      return <>
+        <div class="row1">
+          <BuildCell cellIdx="id1" />
+          {divChildList}
+        </div>
+      </>
+    }
+
+
+
+    const Row2 = () => {
+      const cellIdList = [
+        "A2", "B2", "C2", "D2", "E2", "F2", "G2",
+      ];
+
+      const divChildList = [];
+
+      for (var item in cellIdList) {
+        divChildList.push(
+          <BuildCell key={cellIdList[item]}
+            isEditable={true}
+            cellIdx={cellIdList[item]}
+          />)
+      }
+
+      return <>
+        <div class="row2">
+          <BuildCell cellIdx="id2" />
+          {divChildList}
+        </div>
+      </>
+    }
+
+
+    const Row3 = () => {
+      const cellIdList = [
+        "A3", "B3", "C3", "D3", "E3", "F3", "G3",
+      ];
+
+      const divChildList = [];
+
+      for (var item in cellIdList) {
+        divChildList.push(
+          <BuildCell key={cellIdList[item]}
+            isEditable={true}
+            cellIdx={cellIdList[item]}
+          />)
+      }
+
+      return <>
+        <div class="row3">
+          <BuildCell cellIdx="id3" />
+          {divChildList}
+        </div>
+      </>
+    }
+
+
+
+    const Row4 = () => {
+      const cellIdList = [
+        "A4", "B4", "C4", "D4", "E4", "F4", "G4",
+      ];
+
+      const divChildList = [];
+
+      for (var item in cellIdList) {
+        divChildList.push(
+          <BuildCell key={cellIdList[item]}
+            isEditable={true}
+            cellIdx={cellIdList[item]}
+          />)
+      }
+
+      return <>
+        <div class="row4">
+          <BuildCell cellIdx="id4" />
+          {divChildList}
+        </div>
+      </>
+    }
+
+
+
+    const Row5 = () => {
+      const cellIdList = [
+        "A5", "B5", "C5", "D5", "E5", "F5", "G5",
+      ];
+
+      const divChildList = [];
+
+      for (var item in cellIdList) {
+        divChildList.push(
+          <BuildCell key={cellIdList[item]}
+            isEditable={true}
+            cellIdx={cellIdList[item]}
+          />)
+      }
+
+      return <>
+        <div class="row5">
+          <BuildCell cellIdx="id5" />
+          {divChildList}
+        </div>
+      </>
+    }
+
+
+
+    const Row6 = () => {
+      const cellIdList = [
+        "A6", "B6", "C6", "D6", "E6", "F6", "G6",
+      ];
+
+      const divChildList = [];
+
+      for (var item in cellIdList) {
+        divChildList.push(
+          <BuildCell key={cellIdList[item]}
+            isEditable={true}
+            cellIdx={cellIdList[item]}
+          />)
+      }
+
+      return <>
+        <div class="row6">
+          <BuildCell cellIdx="id6" />
+          {divChildList}
+        </div>
+      </>
+    }
+
+
+    const Row7 = () => {
+      const cellIdList = [
+        "A7", "B7", "C7", "D7", "E7", "F7", "G7",
+      ];
+
+      const divChildList = [];
+
+      for (var item in cellIdList) {
+        divChildList.push(
+          <BuildCell key={cellIdList[item]}
+            isEditable={true}
+            cellIdx={cellIdList[item]}
+          />)
+      }
+
+      return <>
+        <div class="row7">
+          <BuildCell cellIdx="id7" />
+          {divChildList}
+        </div>
+      </>
+    }
+
+
+
+    const Row8 = () => {
+      const cellIdList = [
+        "A8", "B8", "C8", "D8", "E8", "F8", "G8",
+      ];
+
+      const divChildList = [];
+
+      for (var item in cellIdList) {
+        divChildList.push(
+          <BuildCell key={cellIdList[item]}
+            isEditable={true}
+            cellIdx={cellIdList[item]}
+          />)
+      }
+
+      return <>
+        <div class="row8">
+          <BuildCell cellIdx="id8" />
+          {divChildList}
+        </div>
+      </>
+    }
+
+
+    const Row9 = () => {
+      const cellIdList = [
+        "A9", "B9", "C9", "D9", "E9", "F9", "G9",
+      ];
+
+      const divChildList = [];
+
+      for (var item in cellIdList) {
+        divChildList.push(
+          <BuildCell key={cellIdList[item]}
+            isEditable={true}
+            cellIdx={cellIdList[item]}
+          />)
+      }
+
+      return <>
+        <div class="row9">
+          <BuildCell cellIdx="id9" />
+          {divChildList}
+        </div>
+      </>
+    }
+
+
+
+    const Row10 = () => {
+      const cellIdList = [
+        "A10", "B10", "C10", "D10", "E10", "F10", "G10",
+      ];
+
+      const divChildList = [];
+
+      for (var item in cellIdList) {
+        divChildList.push(
+          <BuildCell key={cellIdList[item]}
+            isEditable={true}
+            cellIdx={cellIdList[item]}
+          />)
+      }
+
+      return <>
+        <div class="row10">
+          <BuildCell cellIdx="id10" />
+          {divChildList}
+        </div>
+      </>
+    }
+
+
+
+    const Row11 = () => {
+      const cellIdList = [
+        "A11", "B11", "C11", "D11", "E11", "F11", "G11",
+      ];
+
+      const divChildList = [];
+
+      for (var item in cellIdList) {
+        divChildList.push(
+          <BuildCell key={cellIdList[item]}
+            isEditable={true}
+            cellIdx={cellIdList[item]}
+          />)
+      }
+
+      return <>
+        <div class="row11">
+          <BuildCell cellIdx="id11" />
+          {divChildList}
+        </div>
+      </>
+    }
+
+
+    const Row12 = () => {
+      const cellIdList = [
+        "A12", "B12", "C12", "D12", "E12", "F12", "G12",
+      ];
+
+      const divChildList = [];
+
+      for (var item in cellIdList) {
+        divChildList.push(
+          <BuildCell key={cellIdList[item]}
+            isEditable={true}
+            cellIdx={cellIdList[item]}
+          />)
+      }
+
+      return <>
+        <div class="row12">
+          <BuildCell cellIdx="id12" />
+          {divChildList}
+        </div>
+      </>
+    }
+
+
+
+    const Row13 = () => {
+      const cellIdList = [
+        "A13", "B13", "C13", "D13", "E13", "F13", "G13",
+      ];
+
+      const divChildList = [];
+
+      for (var item in cellIdList) {
+        divChildList.push(
+          <BuildCell key={cellIdList[item]}
+            isEditable={true}
+            cellIdx={cellIdList[item]}
+          />)
+      }
+
+      return <>
+        <div class="row13">
+          <BuildCell cellIdx="id13" />
+          {divChildList}
+        </div>
+      </>
+    }
+
+
+    const Row14 = () => {
+      const cellIdList = [
+        "A14", "B14", "C14", "D14", "E14", "F14", "G14",
+      ];
+
+      const divChildList = [];
+
+      for (var item in cellIdList) {
+        divChildList.push(
+          <BuildCell key={cellIdList[item]}
+            isEditable={true}
+            cellIdx={cellIdList[item]}
+          />)
+      }
+
+      return <>
+        <div class="row14">
+          <BuildCell cellIdx="id14" />
+          {divChildList}
+        </div>
+      </>
+    }
+
+
+    const Row15 = () => {
+      const cellIdList = [
+        "A15", "B15", "C15", "D15", "E15", "F15", "G15",
+      ];
+
+      const divChildList = [];
+
+      for (var item in cellIdList) {
+        divChildList.push(
+          <BuildCell key={cellIdList[item]}
+            isEditable={true}
+            cellIdx={cellIdList[item]}
+          />)
+      }
+
+      return <>
+        <div class="row15">
+          <BuildCell cellIdx="id15" />
+          {divChildList}
+        </div>
+      </>
+    }
+
+
+
+    const Row16 = () => {
+      const cellIdList = [
+        "A16", "B16", "C16", "D16", "E16", "F16", "G16",
+      ];
+
+      const divChildList = [];
+
+      for (var item in cellIdList) {
+        divChildList.push(
+          <BuildCell key={cellIdList[item]}
+            isEditable={true}
+            cellIdx={cellIdList[item]}
+          />)
+      }
+
+      return <>
+        <div class="row16">
+          <BuildCell cellIdx="id16" />
+          {divChildList}
+        </div>
+      </>
+    }
+
+
+
+    const Row17 = () => {
+      const cellIdList = [
+        "A17", "B17", "C17", "D17", "E17", "F17", "G17",
+      ];
+
+      const divChildList = [];
+
+      for (var item in cellIdList) {
+        divChildList.push(
+          <BuildCell key={cellIdList[item]}
+            isEditable={true}
+            cellIdx={cellIdList[item]}
+          />)
+      }
+
+      return <>
+        <div class="row17">
+          <BuildCell cellIdx="id17" />
+          {divChildList}
+        </div>
+      </>
+    }
+
+    const Table = () => {
+
+      const GetJsonDataBtn = () => {
+
+        const onBtnClick = () => {
+          const jsonDataDiv = document.getElementById("edited-json-data-div");
+
+
+          const jsonPreTag = document.getElementById("json-data");
+          jsonPreTag.textContent = JSON.stringify(cellData, undefined, 2);
+
+          jsonDataDiv.style.display = "block";
+
+          console.log("data");
+          console.log(cellData);
+        }
+
+        return <div id="db-data-btn" >
+          <button id="get-db-data-btn"
+            onClick={onBtnClick}
+          >Get edited table data as JSON</button>
+        </div>
+
+      }
+
+      return <>
+
+        <Header />
+
+        <div id="table">
+
+          <Row0 />
+          <Row1 />
+          <Row2 />
+          <Row3 />
+          <Row4 />
+          <Row5 />
+          <Row6 />
+          <Row7 />
+          <Row8 />
+          <Row9 />
+          <Row10 />
+          <Row11 />
+          <Row12 />
+          <Row13 />
+          <Row14 />
+          <Row15 />
+          <Row16 />
+          <Row17 />
+
+
+
+
+          <GetJsonDataBtn />
+
+        </div>
+
+
+      </>
+
+
+
+    }
+
+
+
+    const container = document.getElementById('root');
+    const root = ReactDOM.createRoot(container);
+
+
+
+    const observer = new ResizeObserver(
+      entries => {
+        for (const entry of entries) {
+          const newWidth = entry.contentRect.width;
+
+          // console.log('The screen width has changed to ' + newWidth);
+          // console.log('valu : ' + (newWidth < 1200));
+
+          if (newWidth < 1200) {
+
+            root.render(
+              <p id="mobile-screen-info">
+                Please use a bigger screen.
+              </p>
+            );
+
+          } else {
+
+            // use setTimeout in case js not working on DOM element
+            // setTimeout(() => {
+
+            // }, 2000);
+
+            root.render(<Table />);
+
+          }
+
+
+        }
+      });
+    observer.observe(document.body);
+
+
+  </script>
+
+
+
+
+</body>
+
+</html>
