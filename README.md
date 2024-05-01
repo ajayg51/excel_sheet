@@ -1,4 +1,14 @@
 # Micro excel sheet featuring actions like cell value update just like an excel sheet and provides JSON ready to be post to database
+##  Only large screen renderable
+
+#  Future work
+```
+
+  $ dynamic cell resizing
+  $ mathematical operation evaluation
+  $ mobile screen renderable
+
+```
 
 #  Tech stack
 ```
