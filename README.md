@@ -1,4 +1,4 @@
-# Micro excel sheet featuring actions like cell value update just like an excel sheet and provides JSON ready to be post to database
+# Micro excel sheet featuring actions like cell value update just like an excel sheet and provides database ready JSON 
 ##  Only large screen renderable
 
 #  Demo video
